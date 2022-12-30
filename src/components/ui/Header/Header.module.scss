@@ -1,0 +1,32 @@
+@import '../../../assets/styles/variables';
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: $light-gray-bgc;
+  .header_content {
+    max-width: $maxAppWidth;
+    width: 100%;
+    display: flex;
+    padding: 6px;
+    justify-content: space-between;
+    .header_content__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .header_content_title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+    .header_content__update {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .last_update {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../../assets/styles/variables';
+
+.select {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: $light-gray-bgc;
+  box-shadow: 0 0 6px 1px $light-blue;
+  outline: none;
+  border: none;
+  text-shadow: none;
+  font-size: 18px;
+  min-width: 250px;
+  cursor: pointer;
+  .option {
+    font-size: 18px;
+  }
+}

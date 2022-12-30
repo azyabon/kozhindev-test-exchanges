@@ -1,0 +1,13 @@
+@import '../../../assets/styles/variables';
+
+.input {
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background-color: $light-gray-bgc;
+  box-shadow: 0 0 6px 1px $light-blue;
+  text-shadow: none;
+  padding: 10px;
+  font-size: 18px;
+  min-width: 250px;
+}

@@ -1,0 +1,17 @@
+@import '../../../assets/styles/variables';
+
+.button {
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background-color: $light-gray-bgc;
+  box-shadow: 0 0 6px 1px $light-blue;
+  padding: 6px 12px;
+  font-size: 18px;
+  text-shadow: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 6px 1px $dark-blue;
+  }
+}

@@ -1,0 +1,68 @@
+@import './variables.scss';
+
+strong {
+  font-weight: bold;
+}
+
+html,
+body,
+#root,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+
+* {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+  color: $color-white;
+  text-shadow: 2px 2px 10px $light-blue;
+  &::selection {
+    background-color: #fff;
+    color: #fff;
+  }
+  ::-moz-selection {
+    background-color: #fff;
+    color: #fff;
+  }
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth
+}
+
+#root {
+  height: 100vh;
+  overflow: auto;
+  color: #fff;
+  width: 100vw;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden
+}
+
+div {
+  box-sizing: border-box
+}
+
+main {
+  min-height: calc(100vh - 144px);
+}
+
+iframe {
+  display: none !important;
+}

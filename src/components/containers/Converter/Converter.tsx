@@ -4,6 +4,9 @@ import { Convert } from "../../icons";
 import { ChangeEvent, useEffect, useState } from "react";
 import { getFromLocalStorage, writeToLocalStorage } from "../../../libs";
 import { useTypedSelector } from "../../../hooks/useTypesSelector";
+import { convert } from "../../../utils/convert/convert";
+
+const reg = /^([0-9]+)([.,]?)([0-9]*)$/;
 
 export const Converter = () => {
   const [selectedTop, setSelectedTop] = useState("");
@@ -21,10 +24,26 @@ export const Converter = () => {
   };
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === "inputTop") {
-      setInputTop(e.target.value);
-    } else {
-      setInputBottom(e.target.value);
+    if (reg.test(e.target.value) || e.target.value === "") {
+      if (e.target.name === "inputTop") {
+        setInputTop(e.target.value.replace(".", ","));
+        convert(
+          currencies,
+          e.target.value.replace(",", "."),
+          selectedTop,
+          selectedBottom,
+          setInputBottom
+        );
+      } else {
+        setInputBottom(e.target.value.replace(".", ","));
+        convert(
+          currencies,
+          e.target.value.replace(",", "."),
+          selectedBottom,
+          selectedTop,
+          setInputTop
+        );
+      }
     }
   };
 
@@ -40,10 +59,6 @@ export const Converter = () => {
     setSelectedTop(data.first);
     setSelectedBottom(data.second);
   }, [selectedTop, selectedBottom]);
-
-  // useEffect(() => {
-  //   console.log("convert");
-  // }, [inputTop, inputBottom]);
 
   return (
     <section className={classes.converter}>

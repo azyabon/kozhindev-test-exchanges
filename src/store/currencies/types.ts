@@ -17,15 +17,15 @@ export interface IResponse {
 }
 
 export interface ICurrencies {
-  id: string;
-  numCode: string;
-  charCode: string;
-  nominal: number;
+  ID: string;
+  NumCode: string;
+  CharCode: string;
+  Nominal: number;
   rubValue: string;
   usdValue: string;
   eurValue: string;
   cnyValue: string;
-  name: string;
+  Name: string;
 }
 
 export interface IInitialState {

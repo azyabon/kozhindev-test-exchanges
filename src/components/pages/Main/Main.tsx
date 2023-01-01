@@ -7,7 +7,8 @@ const Main = () => {
 
   useEffect(() => {
     getCurrencies();
-  }, []);
+  });
+
   return (
     <>
       <Converter />

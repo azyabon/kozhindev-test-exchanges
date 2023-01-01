@@ -19,11 +19,11 @@ export const Select = ({ name, onChange, value, options }: Props) => {
     >
       {options.map((option) => (
         <option
-          key={option.id}
+          key={option.ID}
           className={classes.option}
-          value={option.charCode}
+          value={option.CharCode}
         >
-          {option.charCode} ({option.name})
+          {option.CharCode} ({option.Name})
         </option>
       ))}
     </select>

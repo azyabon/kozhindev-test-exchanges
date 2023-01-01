@@ -2,8 +2,8 @@
 
 .header {
   display: flex;
-  justify-content: center;
   background-color: $light-gray-bgc;
+  justify-content: center;
   .header_content {
     max-width: $maxAppWidth;
     width: 100%;

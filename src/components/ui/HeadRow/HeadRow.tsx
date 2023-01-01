@@ -1,11 +1,14 @@
 import classes from "./HeadRow.module.scss";
-import { TABLE_HEADER } from "../../../config/table";
 
-export const HeadRow = () => {
+type Props = {
+  heads: String[];
+};
+
+export const HeadRow = ({ heads }: Props) => {
   return (
     <tr className={classes.head}>
-      {TABLE_HEADER.map((head) => (
-        <th>{head}</th>
+      {heads.map((head, index) => (
+        <th key={index}>{head}</th>
       ))}
     </tr>
   );

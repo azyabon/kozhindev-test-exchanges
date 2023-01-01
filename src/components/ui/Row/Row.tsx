@@ -10,8 +10,8 @@ export const Row = ({ currency, num }: Props) => {
   return (
     <tr className={classes.row}>
       <td>{num}</td>
-      <td>{currency.charCode}</td>
-      <td>{currency.name}</td>
+      <td>{currency.CharCode}</td>
+      <td>{currency.Name}</td>
       <td>{currency.rubValue}</td>
       <td>{currency.usdValue}</td>
       <td>{currency.eurValue}</td>

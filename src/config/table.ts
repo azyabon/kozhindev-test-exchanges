@@ -7,3 +7,5 @@ export const TABLE_HEADER = [
   "Course to EUR",
   "Course to CNY",
 ];
+
+export const TABLE_LIMIT = 5;

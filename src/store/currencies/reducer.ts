@@ -13,14 +13,10 @@ export const currencies = createSlice({
   reducers: {
     setCurrencies: (state, action: PayloadAction<IResponse>) => {
       const data: ICurrencies[] = [];
-
-      //данные приходят в ужасном нейминге, пришлось перебрать и сразу конвертировать валюты под таблицу (eur, usd)
+      //перебрал в массив, чтобы было удобнее работать с таблицей
       for (let key in action.payload.Valute) {
         data.push({
-          id: action.payload.Valute[key].ID,
-          charCode: action.payload.Valute[key].CharCode,
-          numCode: action.payload.Valute[key].NumCode,
-          nominal: action.payload.Valute[key].Nominal,
+          ...action.payload.Valute[key],
           eurValue: (
             action.payload.Valute[key].Value /
             // @ts-ignore
@@ -37,7 +33,6 @@ export const currencies = createSlice({
             // @ts-ignore
             action.payload.Valute["CNY"].Value
           ).toFixed(2),
-          name: action.payload.Valute[key].Name,
         });
       }
 

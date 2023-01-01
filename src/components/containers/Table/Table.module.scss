@@ -1,13 +1,23 @@
 @import '../../../assets/styles/variables';
 
-.table {
-  border-radius: 8px;
-  background-color: $light-gray-bgc;
-  box-shadow: 0 0 6px 1px $light-blue;
-  width: 100%;
+.table_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 50px 0 20px;
-  overflow: scroll;
-  th, td {
-    border-bottom: 1px solid $dark-blue;
+  gap: 20px;
+  .table {
+    border-radius: 8px;
+    background-color: $light-gray-bgc;
+    box-shadow: 0 0 6px 1px $light-blue;
+    width: 100%;
+    overflow: scroll;
+    border-collapse: collapse;
+    transition: all 0.5s ease;
+    th, td {
+      border-bottom: 1px solid $dark-blue;
+    }
   }
 }
+

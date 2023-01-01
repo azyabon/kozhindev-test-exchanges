@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getAxios } from "../../libs/axios/axios";
 import { IResponse } from "./types";
-import { API_DOMAIN, API_METHODS } from "../../config/api";
+import { API_DOMAIN, API_METHODS } from "../../config";
 import { currenciesActions } from "./reducer";
 
 const _axios = getAxios();

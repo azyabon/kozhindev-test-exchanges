@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_PREFIX } from "../../config/local-storage";
+import { LOCAL_STORAGE_PREFIX } from "../../config";
 
 export const writeToLocalStorage = (key: string, state: any): void => {
   try {

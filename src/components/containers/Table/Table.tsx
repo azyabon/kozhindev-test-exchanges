@@ -1,7 +1,7 @@
 import classes from "./Table.module.scss";
 import { useTypedSelector } from "../../../hooks/useTypesSelector";
 import { Row, HeadRow, Button } from "../../ui";
-import { TABLE_HEADER, TABLE_LIMIT } from "../../../config/table";
+import { TABLE_HEADER, TABLE_LIMIT } from "../../../config";
 import { ICurrencies } from "../../../store/currencies";
 import { Blocks } from "react-loader-spinner";
 import { useState } from "react";

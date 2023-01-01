@@ -48,12 +48,10 @@ export const Converter = () => {
   };
 
   useEffect(() => {
-    if (selectedTop && selectedBottom) {
-      writeToLocalStorage("selectedСurrencies", {
-        first: selectedTop,
-        second: selectedBottom,
-      });
-    }
+    writeToLocalStorage("selectedСurrencies", {
+      first: selectedTop || "USD",
+      second: selectedBottom || "EUR",
+    });
 
     const data = { ...getFromLocalStorage("selectedСurrencies") };
     setSelectedTop(data.first);

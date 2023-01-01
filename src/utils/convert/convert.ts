@@ -15,11 +15,11 @@ export const convert = (
   let fromValue = 1;
   let toValue = 1;
   for (let i = 0; i < currencies.length; i++) {
-    if (currencies[i].CharCode === from?.substring(0, 3)) {
+    if (currencies[i].CharCode === from) {
       fromValue = +currencies[i].rubValue;
     }
 
-    if (currencies[i].CharCode === to?.substring(0, 3)) {
+    if (currencies[i].CharCode === to) {
       toValue = +currencies[i].rubValue;
     }
   }

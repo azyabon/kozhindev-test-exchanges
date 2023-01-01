@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kozhindev-test-exchanges/static/css/main.425ec344.css",
+    "main.js": "/kozhindev-test-exchanges/static/js/main.1b7302fb.js",
+    "index.html": "/kozhindev-test-exchanges/index.html",
+    "main.425ec344.css.map": "/kozhindev-test-exchanges/static/css/main.425ec344.css.map",
+    "main.1b7302fb.js.map": "/kozhindev-test-exchanges/static/js/main.1b7302fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.425ec344.css",
+    "static/js/main.1b7302fb.js"
+  ]
+}

@@ -5,12 +5,13 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { getFromLocalStorage, writeToLocalStorage } from "../../../libs";
 import { useTypedSelector } from "../../../hooks/useTypesSelector";
 import { convert } from "../../../utils/convert/convert";
+import { CODES } from "../../../config";
 
 const reg = /^([0-9]+)([.,]?)([0-9]*)$/;
 
 export const Converter = () => {
-  const [selectedTop, setSelectedTop] = useState("");
-  const [selectedBottom, setSelectedBottom] = useState("");
+  const [selectedTop, setSelectedTop] = useState(CODES.USD);
+  const [selectedBottom, setSelectedBottom] = useState(CODES.EUR);
   const [inputTop, setInputTop] = useState("");
   const [inputBottom, setInputBottom] = useState("");
   const { currencies } = useTypedSelector((state) => state.currencies);
@@ -18,9 +19,24 @@ export const Converter = () => {
   const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target.name === "selectTop") {
       setSelectedTop(e.target.value);
+      writeToLocalStorage("selectedСurrencies", {
+        first: e.target.value,
+        second: selectedBottom,
+      });
     } else {
       setSelectedBottom(e.target.value);
+      writeToLocalStorage("selectedСurrencies", {
+        first: selectedTop,
+        second: e.target.value,
+      });
     }
+    convert(
+      currencies,
+      inputTop.replace(",", "."),
+      e.target.value,
+      selectedBottom,
+      setInputBottom
+    );
   };
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -48,15 +64,17 @@ export const Converter = () => {
   };
 
   useEffect(() => {
-    writeToLocalStorage("selectedСurrencies", {
-      first: selectedTop || "USD",
-      second: selectedBottom || "EUR",
-    });
-
     const data = { ...getFromLocalStorage("selectedСurrencies") };
-    setSelectedTop(data.first);
-    setSelectedBottom(data.second);
-  }, [selectedTop, selectedBottom]);
+    if (!data.first && !data.second) {
+      writeToLocalStorage("selectedСurrencies", {
+        first: CODES.USD,
+        second: CODES.EUR,
+      });
+    } else {
+      setSelectedTop(data.first);
+      setSelectedBottom(data.second);
+    }
+  }, []);
 
   return (
     <section className={classes.converter}>

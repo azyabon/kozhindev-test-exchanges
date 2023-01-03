@@ -4,7 +4,7 @@ import { Convert } from "../../icons";
 import { ChangeEvent, useEffect, useState } from "react";
 import { getFromLocalStorage, writeToLocalStorage } from "../../../libs";
 import { useTypedSelector } from "../../../hooks/useTypesSelector";
-import { convert } from "../../../utils/convert/convert";
+import { convert, replaceSeparator } from "../../../utils";
 import { CODES } from "../../../config";
 
 const reg = /^([0-9]+)([.,]?)([0-9]*)$/;
@@ -32,7 +32,7 @@ export const Converter = () => {
     }
     convert(
       currencies,
-      inputTop.replace(",", "."),
+      replaceSeparator(inputTop, true),
       e.target.value,
       selectedBottom,
       setInputBottom
@@ -42,19 +42,19 @@ export const Converter = () => {
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (reg.test(e.target.value) || e.target.value === "") {
       if (e.target.name === "inputTop") {
-        setInputTop(e.target.value.replace(".", ","));
+        setInputTop(replaceSeparator(e.target.value, false));
         convert(
           currencies,
-          e.target.value.replace(",", "."),
+          replaceSeparator(e.target.value, true),
           selectedTop,
           selectedBottom,
           setInputBottom
         );
       } else {
-        setInputBottom(e.target.value.replace(".", ","));
+        setInputBottom(replaceSeparator(e.target.value, false));
         convert(
           currencies,
-          e.target.value.replace(",", "."),
+          replaceSeparator(e.target.value, true),
           selectedBottom,
           selectedTop,
           setInputTop

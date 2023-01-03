@@ -1,6 +1,17 @@
+@import '../../../assets/styles/variables';
+
 .row {
   td {
     text-align: center;
-    padding: 10px;
+    .limit {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 300px;
+      @media (max-width: $mobile) {
+        font-size: 12px;
+        width: 100px;
+      }
+    }
   }
 }

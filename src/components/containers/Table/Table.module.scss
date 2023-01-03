@@ -5,18 +5,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 50px 20px 20px;
+  padding: 50px 20px 20px 20px;
   gap: 20px;
   .table {
     border-radius: 8px;
     background-color: $light-gray-bgc;
     box-shadow: 0 0 6px 1px $light-blue;
-    width: 100%;
-    overflow: scroll;
     border-collapse: collapse;
     transition: all 0.5s ease;
+    max-width: 951px;
+    width: 100%;
     th, td {
       border-bottom: 1px solid $dark-blue;
+      padding: 10px;
+      @media (max-width: $mobile) {
+        font-size: 12px;
+        padding: 5px;
+      }
     }
   }
 }

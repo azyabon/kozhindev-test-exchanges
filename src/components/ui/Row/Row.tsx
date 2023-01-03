@@ -11,7 +11,9 @@ export const Row = ({ currency, num }: Props) => {
     <tr className={classes.row}>
       <td>{num}</td>
       <td>{currency.CharCode}</td>
-      <td>{currency.Name}</td>
+      <td>
+        <div className={classes.limit}>{currency.Name}</div>
+      </td>
       <td>{currency.rubValue}</td>
       <td>{currency.usdValue}</td>
       <td>{currency.eurValue}</td>

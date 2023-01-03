@@ -1,5 +1,6 @@
-import { ICurrencies, IInitialState, IResponse } from "./types";
+import { IInitialState, IResponse } from "./types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { convertObject } from "../../utils/convert-object/convert-object";
 
 const initialState: IInitialState = {
   lastUpdate: Date.now(),
@@ -12,31 +13,7 @@ export const currencies = createSlice({
   initialState,
   reducers: {
     setCurrencies: (state, action: PayloadAction<IResponse>) => {
-      const data: ICurrencies[] = [];
-      //перебрал в массив, чтобы было удобнее работать с таблицей
-      for (let key in action.payload.Valute) {
-        data.push({
-          ...action.payload.Valute[key],
-          eurValue: (
-            action.payload.Valute[key].Value /
-            // @ts-ignore
-            action.payload.Valute["EUR"].Value
-          ).toFixed(2),
-          usdValue: (
-            action.payload.Valute[key].Value /
-            // @ts-ignore
-            action.payload.Valute["USD"].Value
-          ).toFixed(2),
-          rubValue: action.payload.Valute[key].Value.toFixed(2),
-          cnyValue: (
-            action.payload.Valute[key].Value /
-            // @ts-ignore
-            action.payload.Valute["CNY"].Value
-          ).toFixed(2),
-        });
-      }
-
-      state.currencies = data;
+      state.currencies = convertObject(action.payload);
     },
     setLastUpdate: (state) => {
       state.lastUpdate = Date.now();

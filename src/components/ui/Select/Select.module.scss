@@ -12,6 +12,9 @@
   font-weight: 800;
   min-width: 250px;
   cursor: pointer;
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
   .option {
     font-size: 12px;
     font-weight: 800;

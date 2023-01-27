@@ -1,4 +1,4 @@
-export interface IResCurrencies {
+export interface IResCurrency {
   ID: string;
   NumCode: string;
   CharCode: string;
@@ -13,7 +13,7 @@ export interface IResponse {
   PreviousDate: string;
   PreviousURL: string;
   Timestamp: string;
-  Valute: IResCurrencies[];
+  Valute: Record<string, IResCurrency>;
 }
 
 export interface ICurrencies {

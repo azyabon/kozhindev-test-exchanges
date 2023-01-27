@@ -1,4 +1,4 @@
-import classes from "./Table.module.scss";
+import classes from "./CurrencyTable.module.scss";
 import { useTypedSelector } from "../../../hooks/useTypesSelector";
 import { Row, HeadRow, Button, Input } from "../../ui";
 import { TABLE_HEADER, TABLE_LIMIT } from "../../../config";
@@ -7,7 +7,7 @@ import { Blocks } from "react-loader-spinner";
 import { useState } from "react";
 import { tableFilterByCode } from "../../../utils/table-filter/table-filter";
 
-export const Table = () => {
+export const CurrencyTable = () => {
   const [limiter, setLimiter] = useState(true);
   const [search, setSearch] = useState("");
   const { currencies, isLoading } = useTypedSelector(

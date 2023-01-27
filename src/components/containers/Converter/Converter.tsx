@@ -19,13 +19,13 @@ export const Converter = () => {
   const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target.name === "selectTop") {
       setSelectedTop(e.target.value);
-      writeToLocalStorage("selectedСurrencies", {
+      writeToLocalStorage("selectedCurrencies", {
         first: e.target.value,
         second: selectedBottom,
       });
     } else {
       setSelectedBottom(e.target.value);
-      writeToLocalStorage("selectedСurrencies", {
+      writeToLocalStorage("selectedCurrencies", {
         first: selectedTop,
         second: e.target.value,
       });
@@ -64,9 +64,9 @@ export const Converter = () => {
   };
 
   useEffect(() => {
-    const data = { ...getFromLocalStorage("selectedСurrencies") };
+    const data = { ...getFromLocalStorage("selectedCurrencies") };
     if (!data.first && !data.second) {
-      writeToLocalStorage("selectedСurrencies", {
+      writeToLocalStorage("selectedCurrencies", {
         first: CODES.USD,
         second: CODES.EUR,
       });

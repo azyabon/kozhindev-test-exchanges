@@ -1,4 +1,5 @@
 import { ICurrencies, IResponse } from "../../store/currencies";
+import { CODES, ROUNDING } from "../../config";
 
 export const convertObject = (obj: IResponse) => {
   let data: ICurrencies[] = [];
@@ -6,22 +7,16 @@ export const convertObject = (obj: IResponse) => {
   for (let key in obj.Valute) {
     data.push({
       ...obj.Valute[key],
-      eurValue: (
-        obj.Valute[key].Value /
-        // @ts-ignore
-        obj.Valute["EUR"].Value
-      ).toFixed(2),
-      usdValue: (
-        obj.Valute[key].Value /
-        // @ts-ignore
-        obj.Valute["USD"].Value
-      ).toFixed(2),
+      eurValue: (obj.Valute[key].Value / obj.Valute[CODES.EUR].Value).toFixed(
+        ROUNDING
+      ),
+      usdValue: (obj.Valute[key].Value / obj.Valute[CODES.USD].Value).toFixed(
+        ROUNDING
+      ),
       rubValue: obj.Valute[key].Value.toFixed(2),
-      cnyValue: (
-        obj.Valute[key].Value /
-        // @ts-ignore
-        obj.Valute["CNY"].Value
-      ).toFixed(2),
+      cnyValue: (obj.Valute[key].Value / obj.Valute[CODES.CNY].Value).toFixed(
+        ROUNDING
+      ),
     });
   }
 

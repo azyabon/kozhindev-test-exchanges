@@ -11,11 +11,13 @@ export const getCurrencies = createAsyncThunk(
   async (_, { dispatch }) => {
     try {
       dispatch(currenciesActions.toggleLoading(true));
-      const response = await _axios.get<IResponse>(
-        API_DOMAIN + API_METHODS.GET_VALUTE
-      );
+      await _axios
+        .get<IResponse>(API_DOMAIN + API_METHODS.GET_VALUTE)
+        .then((response) => {
+          dispatch(currenciesActions.setCurrencies(response.data));
+          dispatch(currenciesActions.setLastUpdate());
+        });
 
-      dispatch(currenciesActions.setCurrencies(response.data));
       dispatch(currenciesActions.toggleLoading(false));
     } catch (error) {
       console.log(error);

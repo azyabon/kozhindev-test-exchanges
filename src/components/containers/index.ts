@@ -1,2 +1,2 @@
 export * from "./Converter/Converter";
-export * from "./Table/Table";
+export * from "./CurrencyTable/CurrencyTable";

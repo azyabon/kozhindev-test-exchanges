@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Converter, Table } from "../../containers";
+import { Converter, CurrencyTable } from "../../containers";
 import { useActions } from "../../../hooks/useActions";
 
 const Main = () => {
@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <>
       <Converter />
-      <Table />
+      <CurrencyTable />
     </>
   );
 };
